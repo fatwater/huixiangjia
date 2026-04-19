@@ -15,11 +15,25 @@ export class AuthController {
     return this.authService.login(body.code)
   }
 
+  @Post('admin/login')
+  @ApiOperation({ summary: '管理后台登录' })
+  async adminLogin(@Body() body: { username: string; password: string }) {
+    return this.authService.adminLogin(body.username, body.password)
+  }
+
   @UseGuards(JwtAuthGuard)
   @Get('userinfo')
   @ApiBearerAuth()
   @ApiOperation({ summary: '获取当前用户信息' })
   async getUserInfo(@CurrentUser() user: any) {
+    return user
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('admin/userinfo')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: '获取管理员信息' })
+  async getAdminUserInfo(@CurrentUser() user: any) {
     return user
   }
 

@@ -24,6 +24,13 @@ export class UserService {
     })
   }
 
+  async findByPhoneAndRole(phone: string, role: string): Promise<User | null> {
+    return this.userRepository.findOne({
+      where: { phone, role },
+      relations: ['tenant'],
+    })
+  }
+
   async findByTenant(tenantId: number, page = 1, pageSize = 10) {
     const [list, total] = await this.userRepository.findAndCount({
       where: { tenantId },

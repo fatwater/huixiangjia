@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` VARCHAR(20) DEFAULT NULL COMMENT '手机号',
   `avatar` VARCHAR(255) DEFAULT NULL COMMENT '头像URL',
   `role` VARCHAR(20) DEFAULT 'employee' COMMENT '角色: admin/employee',
+  `password` VARCHAR(100) DEFAULT NULL COMMENT '密码(MD5)',
   `status` TINYINT DEFAULT 1 COMMENT '状态: 0-禁用, 1-启用',
   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
@@ -229,6 +230,6 @@ CREATE TABLE IF NOT EXISTS `access_logs` (
 INSERT INTO `tenants` (`name`, `short_code`, `status`, `expire_date`) VALUES
   ('演示企业', 'demo', 1, DATE_ADD(NOW(), INTERVAL 1 YEAR));
 
--- 插入管理员用户
-INSERT INTO `users` (`tenant_id`, `wx_userid`, `name`, `phone`, `role`) VALUES
-  (1, 'admin001', '系统管理员', '13800138000', 'admin');
+-- 插入管理员用户 (密码: admin123, MD5 hash)
+INSERT INTO `users` (`tenant_id`, `wx_userid`, `name`, `phone`, `role`, `password`) VALUES
+  (1, 'admin001', '系统管理员', '13800138000', 'admin', '0192023a7bbd73250516f069df18b500');

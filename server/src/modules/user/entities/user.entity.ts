@@ -35,6 +35,9 @@ export class User {
   @Column({ default: 1 })
   status: number
 
+  @Column({ name: 'password', length: 100, nullable: true })
+  password: string
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date
 

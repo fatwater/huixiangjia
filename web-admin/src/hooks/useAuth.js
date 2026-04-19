@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { message } from 'antd'
 import { authApi } from '../api/auth'
-import { setToken, removeToken, getToken } from '../utils/storage'
+import { setToken, removeToken, getToken, setUser } from '../utils/storage'
 
 export function useAuth() {
   const navigate = useNavigate()
@@ -12,6 +12,9 @@ export function useAuth() {
     try {
       const res = await authApi.login(values)
       setToken(res.token)
+      if (res.user) {
+        setUser(res.user)
+      }
       setIsAuthenticated(true)
       message.success('登录成功')
       navigate('/dashboard')
