@@ -51,6 +51,9 @@ export class Order {
   @Column({ name: 'pickup_time', type: 'datetime', nullable: true })
   pickupTime: Date
 
+  @Column({ name: 'trade_no', length: 64, nullable: true })
+  tradeNo: string
+
   @Column({ default: 1 })
   status: number
 

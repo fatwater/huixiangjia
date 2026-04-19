@@ -85,4 +85,16 @@ export class GroupbuyController {
   async cancelOrder(@Param('id') id: string) {
     return this.groupbuyService.cancelOrder(+id)
   }
+
+  @Put('orders/:id/pay')
+  @ApiOperation({ summary: '支付订单' })
+  async payOrder(@Param('id') id: string, @Body() body: { transactionId?: string }) {
+    return this.groupbuyService.payOrder(+id, body.transactionId)
+  }
+
+  @Put('orders/:id/pickup')
+  @ApiOperation({ summary: '提货' })
+  async pickupOrder(@Param('id') id: string) {
+    return this.groupbuyService.pickupOrder(+id)
+  }
 }

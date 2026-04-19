@@ -134,6 +134,47 @@ export class GroupbuyService {
     }
   }
 
+  async payOrder(id: number, transactionId?: string): Promise<Order> {
+    const order = await this.orderRepository.findOne({
+      where: { id },
+      relations: ['product'],
+    })
+
+    if (!order) {
+      throw new BadRequestException('订单不存在')
+    }
+
+    if (order.payStatus === 1) {
+      throw new BadRequestException('订单已支付')
+    }
+
+    order.payStatus = 1
+    order.payTime = new Date()
+    order.status = 2 // 待提货
+    if (transactionId) {
+      order.tradeNo = transactionId
+    }
+
+    return this.orderRepository.save(order)
+  }
+
+  async pickupOrder(id: number): Promise<Order> {
+    const order = await this.orderRepository.findOne({ where: { id } })
+
+    if (!order) {
+      throw new BadRequestException('订单不存在')
+    }
+
+    if (order.status !== 2) {
+      throw new BadRequestException('订单状态不正确')
+    }
+
+    order.status = 3 // 已完成
+    order.pickupTime = new Date()
+
+    return this.orderRepository.save(order)
+  }
+
   private generatePickupCode(): string {
     const chars = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ'
     let code = ''

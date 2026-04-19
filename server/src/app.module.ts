@@ -12,6 +12,7 @@ import { AccessModule } from './modules/access/access.module'
 import { HealthModule } from './modules/health/health.module'
 import { DashboardModule } from './modules/dashboard/dashboard.module'
 import { UploadModule } from './modules/upload/upload.module'
+import { PaymentModule } from './modules/payment/payment.module'
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { UploadModule } from './modules/upload/upload.module'
     AccessModule,
     DashboardModule,
     UploadModule,
+    PaymentModule,
   ],
 })
 export class AppModule {}
