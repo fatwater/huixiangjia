@@ -1,0 +1,10 @@
+<view class="access-record" bindtap="onTap">
+  <view class="icon-wrap {{record.result === 1 ? 'success' : 'fail'}}">
+    <text>{{record.result === 1 ? '✓' : '✗'}}</text>
+  </view>
+  <view class="content">
+    <view class="title">{{record.access_type_text}}</view>
+    <view class="desc">{{record.device_name}}</view>
+    <view class="time">{{record.access_time}}</view>
+  </view>
+</view>

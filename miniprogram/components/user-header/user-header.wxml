@@ -1,0 +1,11 @@
+<view class="user-header">
+  <image
+    class="avatar"
+    src="{{user.avatar || '/assets/images/default-avatar.png'}}"
+    mode="aspectFill"
+  />
+  <view class="info">
+    <view class="name">{{user.name}}</view>
+    <view class="tenant">{{tenant.name}}</view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<button
+  class="loading-button {{loading || disabled ? 'disabled' : ''}}"
+  bindtap="onTap"
+  disabled="{{loading || disabled}}"
+>
+  <text class="loading-icon" wx:if="{{loading}}">⟳</text>
+  <text>{{loading ? '加载中...' : text}}</text>
+</button>

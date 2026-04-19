@@ -1,0 +1,20 @@
+<view class="page">
+  <navigation-bar title="通行码" back="{{true}}" color="black" background="#f5f5f5"/>
+
+  <view class="content">
+    <view class="code-display">
+      <view class="code-label">访客通行码</view>
+      <view class="code-value">{{accessCode}}</view>
+      <view class="code-hint">请将通行码告知访客</view>
+    </view>
+
+    <view class="tips">
+      <view class="tip-title">使用说明</view>
+      <view class="tip-item">1. 访客到达时出示此通行码</view>
+      <view class="tip-item">2. 门禁设备扫描通行码</view>
+      <view class="tip-item">3. 验证成功后自动开门</view>
+    </view>
+
+    <view class="copy-btn" bindtap="onCopyCode">复制通行码</view>
+  </view>
+</view>

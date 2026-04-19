@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "tab-bar": "/components/tab-bar/tab-bar",
+    "access-record": "/components/access-record/access-record",
+    "empty-state": "/components/empty-state/empty-state"
+  }
+}

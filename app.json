@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/property/meeting/meeting",
+    "pages/property/meeting-detail/meeting-detail",
+    "pages/property/my-bookings/my-bookings",
+    "pages/merchant/list/list",
+    "pages/merchant/detail/detail",
+    "pages/groupbuy/list/list",
+    "pages/groupbuy/order/order",
+    "pages/access/visitor/visitor",
+    "pages/access/record/record",
+    "pages/access/code/code",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy",
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#1890ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/property/meeting/meeting",
+        "text": "物业"
+      },
+      {
+        "pagePath": "pages/merchant/list/list",
+        "text": "商家"
+      },
+      {
+        "pagePath": "pages/groupbuy/list/list",
+        "text": "团购"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  }
+}

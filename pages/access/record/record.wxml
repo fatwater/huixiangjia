@@ -1,0 +1,21 @@
+<view class="page">
+  <navigation-bar title="通行记录" back="{{true}}" color="black" background="#f5f5f5"/>
+
+  <scroll-view scroll-y type="list" class="scroll-area">
+    <view class="record-list">
+      <access-record
+        wx:for="{{records}}"
+        wx:key="id"
+        record="{{item}}"
+      />
+
+      <empty-state
+        wx:if="{{!loading && records.length === 0}}"
+        text="暂无通行记录"
+        icon="🚪"
+      />
+    </view>
+  </scroll-view>
+
+  <tab-bar/>
+</view>

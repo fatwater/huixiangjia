@@ -1,0 +1,13 @@
+<view class="product-card" bindtap="onTap">
+  <image class="cover" src="{{product.cover_image}}" mode="aspectFill"/>
+  <view class="info">
+    <view class="name">{{product.name}}</view>
+    <view class="price-row">
+      <text class="price">¥{{product.price}}</text>
+      <text class="original-price" wx:if="{{product.original_price > product.price}}">
+        ¥{{product.original_price}}
+      </text>
+    </view>
+    <view class="sales">已售 {{product.sales_count}}</view>
+  </view>
+</view>

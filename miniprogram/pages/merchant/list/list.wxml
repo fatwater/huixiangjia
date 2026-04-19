@@ -1,0 +1,46 @@
+<view class="page">
+  <navigation-bar title="周边商家" back="{{false}}" color="black" background="#f5f5f5"/>
+
+  <scroll-view scroll-y type="list" class="scroll-area">
+    <view class="search-bar">
+      <input
+        class="search-input"
+        placeholder="搜索商家"
+        value="{{keyword}}"
+        bindinput="onSearch"
+      />
+    </view>
+
+    <scroll-view scroll-x class="category-scroll">
+      <view class="categories">
+        <view
+          class="category-item {{category === item ? 'active' : ''}}"
+          wx:for="{{categories}}"
+          wx:key="index"
+          data-category="{{item}}"
+          bindtap="onCategoryChange"
+        >
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="merchant-list">
+      <merchant-card
+        wx:for="{{merchants}}"
+        wx:key="id"
+        merchant="{{item}}"
+        data-merchant="{{item}}"
+        bindtap="onMerchantTap"
+      />
+
+      <empty-state
+        wx:if="{{!loading && merchants.length === 0}}"
+        text="暂无商家"
+        icon="🏪"
+      />
+    </view>
+  </scroll-view>
+
+  <tab-bar/>
+</view>

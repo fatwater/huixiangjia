@@ -1,0 +1,11 @@
+<view class="merchant-card" bindtap="onTap">
+  <image class="cover" src="{{merchant.cover_image || '/assets/images/default-merchant.png'}}" mode="aspectFill"/>
+  <view class="content">
+    <view class="name">{{merchant.name}}</view>
+    <view class="category">{{merchant.category}}</view>
+    <view class="address">{{merchant.address}}</view>
+    <view class="footer">
+      <view class="coupon" wx:if="{{merchant.coupon_info}}">{{merchant.coupon_info}}</view>
+    </view>
+  </view>
+</view>

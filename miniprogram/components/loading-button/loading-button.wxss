@@ -1,0 +1,26 @@
+.loading-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  background-color: #1890ff;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 500;
+  border-radius: 8rpx;
+  border: none;
+}
+
+.loading-button.disabled {
+  opacity: 0.6;
+}
+
+.loading-icon {
+  margin-right: 8rpx;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

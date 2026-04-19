@@ -1,0 +1,52 @@
+<view class="page">
+  <navigation-bar title="访客预约" back="{{false}}" color="black" background="#f5f5f5"/>
+
+  <scroll-view scroll-y type="list" class="scroll-area">
+    <view class="action-bar">
+      <view class="add-btn" bindtap="onShowForm">+ 邀请访客</view>
+    </view>
+
+    <view class="visitor-list">
+      <view class="visitor-item" wx:for="{{visitors}}" wx:key="id">
+        <view class="visitor-header">
+          <text class="visitor-name">{{item.visitor_name}}</text>
+          <text class="status status-{{item.status}}">{{item.status_text}}</text>
+        </view>
+        <view class="visitor-info">
+          <text>📞 {{item.phone}}</text>
+          <text>📅 {{item.visit_date}}</text>
+          <text>📝 {{item.purpose}}</text>
+        </view>
+        <view class="visitor-actions" wx:if="{{item.status === 'active'}}">
+          <view class="code-btn" data-id="{{item.id}}" bindtap="onViewCode">
+            查看通行码
+          </view>
+        </view>
+      </view>
+
+      <empty-state
+        wx:if="{{!loading && visitors.length === 0}}"
+        text="暂无访客记录"
+        icon="👤"
+      />
+    </view>
+  </scroll-view>
+
+  <view class="form-popup {{showForm ? 'show' : ''}}" wx:if="{{showForm}}">
+    <view class="form-mask" bindtap="onHideForm"/>
+    <view class="form-content">
+      <view class="form-header">
+        <text class="form-title">邀请访客</text>
+        <text class="form-close" bindtap="onHideForm">×</text>
+      </view>
+      <visitor-form id="visitorForm"/>
+      <loading-button
+        text="确认邀请"
+        loading="{{submitting}}"
+        bindtap="onSubmitVisitor"
+      />
+    </view>
+  </view>
+
+  <tab-bar/>
+</view>

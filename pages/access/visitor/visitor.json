@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "tab-bar": "/components/tab-bar/tab-bar",
+    "visitor-form": "/components/visitor-form/visitor-form",
+    "loading-button": "/components/loading-button/loading-button",
+    "empty-state": "/components/empty-state/empty-state"
+  }
+}

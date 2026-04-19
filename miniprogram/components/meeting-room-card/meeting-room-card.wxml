@@ -1,0 +1,17 @@
+<view class="meeting-room-card" bindtap="onTap">
+  <view class="header">
+    <view class="name">{{room.name}}</view>
+    <view class="status {{room.status === 1 ? 'available' : 'unavailable'}}">
+      {{room.status === 1 ? '可用' : '不可用'}}
+    </view>
+  </view>
+  <view class="info">
+    <text class="info-item">📍 {{room.floor}}</text>
+    <text class="info-item">👥 {{room.capacity}}人</text>
+  </view>
+  <view class="facilities">
+    <text class="facility-tag" wx:for="{{room.facilities}}" wx:key="index">
+      {{item}}
+    </text>
+  </view>
+</view>

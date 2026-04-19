@@ -1,0 +1,40 @@
+<view class="page">
+  <navigation-bar title="{{merchant.name || '商家详情'}}" back="{{true}}" color="black"/>
+
+  <scroll-view scroll-y type="list" class="scroll-area">
+    <image
+      class="cover-image"
+      src="{{merchant.cover_image || '/assets/images/default-merchant.png'}}"
+      mode="aspectFill"
+    />
+
+    <view class="merchant-info card">
+      <view class="name-row">
+        <text class="name">{{merchant.name}}</text>
+        <text
+          class="favorite-btn {{isFavorited ? 'favorited' : ''}}"
+          bindtap="onFavoriteTap"
+        >
+          {{isFavorited ? '❤️ 已收藏' : '🤍 收藏'}}
+        </text>
+      </view>
+      <view class="category">{{merchant.category}}</view>
+
+      <view class="info-item" bindtap="onPhoneTap" wx:if="{{merchant.phone}}">
+        <text class="info-icon">📞</text>
+        <text class="info-text">{{merchant.phone}}</text>
+        <text class="info-arrow">></text>
+      </view>
+    </view>
+
+    <view class="coupon-section card" wx:if="{{merchant.coupon_info}}">
+      <view class="coupon-title">优惠信息</view>
+      <view class="coupon-content">{{merchant.coupon_info}}</view>
+    </view>
+
+    <view class="description-section card" wx:if="{{merchant.description}}">
+      <view class="section-title">商家介绍</view>
+      <text class="description">{{merchant.description}}</text>
+    </view>
+  </scroll-view>
+</view>

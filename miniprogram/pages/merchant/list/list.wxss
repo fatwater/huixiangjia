@@ -1,0 +1,49 @@
+.page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 120rpx;
+}
+
+.scroll-area {
+  height: calc(100vh - 160rpx);
+}
+
+.search-bar {
+  padding: 24rpx 32rpx;
+}
+
+.search-input {
+  height: 72rpx;
+  padding: 0 24rpx;
+  background-color: #ffffff;
+  border-radius: 36rpx;
+  font-size: 28rpx;
+}
+
+.category-scroll {
+  white-space: nowrap;
+  padding: 0 32rpx 24rpx;
+}
+
+.categories {
+  display: inline-flex;
+  gap: 16rpx;
+}
+
+.category-item {
+  padding: 12rpx 32rpx;
+  background-color: #ffffff;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #666666;
+  white-space: nowrap;
+}
+
+.category-item.active {
+  background-color: #1890ff;
+  color: #ffffff;
+}
+
+.merchant-list {
+  padding: 0 32rpx;
+}

@@ -1,0 +1,7 @@
+<view class="module-card" bindtap="onTap">
+  <view class="icon-wrap" style="background-color: {{color}}20">
+    <text class="icon-text">{{icon}}</text>
+  </view>
+  <view class="title">{{title}}</view>
+  <view class="badge" wx:if="{{badge > 0}}">{{badge > 99 ? '99+' : badge}}</view>
+</view>

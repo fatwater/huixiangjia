@@ -1,0 +1,52 @@
+<view class="page">
+  <navigation-bar title="会议室详情" back="{{true}}" color="black" background="#f5f5f5"/>
+
+  <scroll-view scroll-y type="list" class="scroll-area">
+    <view class="room-info card">
+      <view class="room-name">{{room.name}}</view>
+      <view class="room-meta">
+        <text>📍 {{room.floor}}</text>
+        <text>👥 {{room.capacity}}人</text>
+      </view>
+      <view class="facilities">
+        <text class="facility-tag" wx:for="{{room.facilities}}" wx:key="index">
+          {{item}}
+        </text>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">选择时间段 - {{date}}</view>
+      <view class="time-slots">
+        <view
+          class="time-slot {{selectedSlot === item ? 'selected' : ''}} {{bookedSlots.includes(item) ? 'booked' : ''}}"
+          wx:for="{{timeSlots}}"
+          wx:key="index"
+          data-slot="{{item}}"
+          bindtap="onSlotSelect"
+        >
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">会议用途</view>
+      <textarea
+        class="purpose-input"
+        placeholder="请输入会议用途"
+        value="{{purpose}}"
+        bindinput="onPurposeInput"
+      />
+    </view>
+
+    <view class="submit-area">
+      <loading-button
+        text="确认预约"
+        loading="{{submitting}}"
+        disabled="{{!selectedSlot || !purpose}}"
+        bindtap="onSubmit"
+      />
+    </view>
+  </scroll-view>
+</view>

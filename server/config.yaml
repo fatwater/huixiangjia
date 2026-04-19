@@ -1,0 +1,17 @@
+port: 3000
+
+database:
+  host: localhost
+  port: 3306
+  username: root
+  password: your_password
+  database: huixiangjia
+
+jwt:
+  secret: huixiangjia-jwt-secret-key-2024
+  expiresIn: 7d
+
+wecom:
+  corpId: your_corp_id
+  agentId: your_agent_id
+  secret: your_agent_secret

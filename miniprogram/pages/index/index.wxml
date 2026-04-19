@@ -1,0 +1,40 @@
+<view class="page">
+  <navigation-bar title="会想家" back="{{false}}" color="white" background="transparent"/>
+
+  <!-- 用户信息头部 -->
+  <user-header
+    wx:if="{{userInfo}}"
+    user="{{userInfo}}"
+    tenant="{{tenant}}"
+  />
+
+  <!-- 未登录状态 -->
+  <view class="login-card" wx:if="{{!userInfo}}">
+    <text class="login-text">登录后享受更多服务</text>
+    <view class="login-btn" bindtap="handleLogin">微信登录</view>
+  </view>
+
+  <!-- 模块入口 -->
+  <view class="section">
+    <view class="modules">
+      <module-card
+        wx:for="{{modules}}"
+        wx:key="id"
+        title="{{item.title}}"
+        icon="{{item.icon}}"
+        color="{{item.color}}"
+        data-module="{{item}}"
+        bindtap="onModuleTap"
+      />
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="section">
+    <view class="section-title">快捷入口</view>
+    <quick-action actions="{{quickActions}}" bind:action="onActionTap"/>
+  </view>
+
+  <!-- 底部 TabBar -->
+  <tab-bar/>
+</view>

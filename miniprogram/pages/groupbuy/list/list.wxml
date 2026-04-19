@@ -1,0 +1,23 @@
+<view class="page">
+  <navigation-bar title="公司团购" back="{{false}}" color="black" background="#f5f5f5"/>
+
+  <scroll-view scroll-y type="list" class="scroll-area">
+    <view class="product-grid">
+      <product-card
+        wx:for="{{products}}"
+        wx:key="id"
+        product="{{item}}"
+        data-product="{{item}}"
+        bindtap="onProductTap"
+      />
+
+      <empty-state
+        wx:if="{{!loading && products.length === 0}}"
+        text="暂无团购商品"
+        icon="🛒"
+      />
+    </view>
+  </scroll-view>
+
+  <tab-bar/>
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "tab-bar": "/components/tab-bar/tab-bar",
+    "user-header": "/components/user-header/user-header",
+    "module-card": "/components/module-card/module-card",
+    "quick-action": "/components/quick-action/quick-action"
+  }
+}
