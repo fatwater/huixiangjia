@@ -9,7 +9,7 @@ import {
 import { User } from '../../user/entities/user.entity'
 import { MeetingRoom } from './meeting-room.entity'
 
-@Entity('space_bookings')
+@Entity('room_bookings')
 export class SpaceBooking {
   @PrimaryGeneratedColumn()
   id: number
@@ -26,8 +26,17 @@ export class SpaceBooking {
   @Column({ name: 'book_date', type: 'date' })
   bookDate: string
 
-  @Column({ name: 'time_slot', length: 20 })
+  @Column({ name: 'start_time', type: 'time' })
+  startTime: string
+
+  @Column({ name: 'end_time', type: 'time' })
+  endTime: string
+
+  @Column({ name: 'time_slot', length: 20, nullable: true })
   timeSlot: string
+
+  @Column({ length: 100, nullable: true })
+  title: string
 
   @Column({ length: 200, nullable: true })
   purpose: string

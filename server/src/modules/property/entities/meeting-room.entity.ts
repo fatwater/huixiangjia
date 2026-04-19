@@ -4,7 +4,9 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm'
+import { SpaceBooking } from './booking.entity'
 
 @Entity('meeting_rooms')
 export class MeetingRoom {
@@ -17,14 +19,14 @@ export class MeetingRoom {
   @Column({ length: 50 })
   name: string
 
-  @Column({ length: 20 })
-  floor: string
+  @Column({ length: 100, nullable: true })
+  location: string
 
-  @Column()
+  @Column({ default: 10 })
   capacity: number
 
-  @Column('json', { nullable: true })
-  facilities: string[]
+  @Column({ name: 'facilities', nullable: true })
+  facilities: string
 
   @Column({ default: 1 })
   status: number
@@ -34,4 +36,7 @@ export class MeetingRoom {
 
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date
+
+  @OneToMany(() => SpaceBooking, (booking) => booking.room)
+  bookings: SpaceBooking[]
 }
