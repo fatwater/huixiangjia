@@ -11,6 +11,7 @@ import { GroupbuyModule } from './modules/groupbuy/groupbuy.module'
 import { AccessModule } from './modules/access/access.module'
 import { HealthModule } from './modules/health/health.module'
 import { DashboardModule } from './modules/dashboard/dashboard.module'
+import { UploadModule } from './modules/upload/upload.module'
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module'
     GroupbuyModule,
     AccessModule,
     DashboardModule,
+    UploadModule,
   ],
 })
 export class AppModule {}

@@ -28,8 +28,8 @@ export class AccessLog {
   @Column({ name: 'device_name', length: 50, nullable: true })
   deviceName: string
 
-  @Column({ default: 1 })
-  result: number
+  @Column({ name: 'access_result', default: 1 })
+  accessResult: number
 
   @Column({ name: 'access_time', type: 'datetime' })
   accessTime: Date

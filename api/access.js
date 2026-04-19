@@ -9,11 +9,9 @@ import { getTenantId } from '../utils/auth'
  * @param {Object} data 访客数据
  */
 export function createVisitor(data) {
-  const userInfo = wx.getStorageSync('userInfo') || {}
   return post('/access/visitors', {
     ...data,
-    tenant_id: getTenantId(),
-    host_id: userInfo.id
+    tenant_id: getTenantId()
   })
 }
 
