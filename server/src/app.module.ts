@@ -9,6 +9,7 @@ import { PropertyModule } from './modules/property/property.module'
 import { MerchantModule } from './modules/merchant/merchant.module'
 import { GroupbuyModule } from './modules/groupbuy/groupbuy.module'
 import { AccessModule } from './modules/access/access.module'
+import { HealthModule } from './modules/health/health.module'
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { AccessModule } from './modules/access/access.module'
       }),
       inject: [ConfigService],
     }),
+    HealthModule,
     AuthModule,
     TenantModule,
     UserModule,
