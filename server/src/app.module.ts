@@ -10,6 +10,7 @@ import { MerchantModule } from './modules/merchant/merchant.module'
 import { GroupbuyModule } from './modules/groupbuy/groupbuy.module'
 import { AccessModule } from './modules/access/access.module'
 import { HealthModule } from './modules/health/health.module'
+import { DashboardModule } from './modules/dashboard/dashboard.module'
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { HealthModule } from './modules/health/health.module'
     MerchantModule,
     GroupbuyModule,
     AccessModule,
+    DashboardModule,
   ],
 })
 export class AppModule {}
