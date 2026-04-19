@@ -1,0 +1,20 @@
+# 会想家后端服务配置示例
+# 复制此文件为 config.yaml 并填入实际值
+
+port: 3000
+
+database:
+  host: localhost
+  port: 3306
+  username: root
+  password: your_password_here
+  database: huixiangjia
+
+jwt:
+  secret: your-jwt-secret-key-change-in-production
+  expiresIn: '7d'
+
+wecom:
+  corpId: your-wecom-corp-id
+  agentId: your-wecom-agent-id
+  secret: your-wecom-agent-secret

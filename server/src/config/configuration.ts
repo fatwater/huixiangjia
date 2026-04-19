@@ -2,8 +2,30 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as yaml from 'js-yaml'
 
+interface ConfigFile {
+  port?: number
+  database?: {
+    host?: string
+    port?: number
+    username?: string
+    password?: string
+    database?: string
+  }
+  jwt?: {
+    secret?: string
+    expiresIn?: string
+  }
+  wecom?: {
+    corpId?: string
+    agentId?: string
+    secret?: string
+  }
+}
+
 const configPath = path.join(process.cwd(), 'config.yaml')
-const configFile = fs.existsSync(configPath) ? yaml.load(fs.readFileSync(configPath, 'utf8')) : {}
+const configFile: ConfigFile = fs.existsSync(configPath)
+  ? (yaml.load(fs.readFileSync(configPath, 'utf8')) as ConfigFile)
+  : {}
 
 export default () => ({
   port: configFile.port || 3000,

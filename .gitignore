@@ -1,0 +1,8 @@
+node_modules/
+dist/
+server/node_modules/
+server/dist/
+web-admin/node_modules/
+*.log
+.env
+config.yaml

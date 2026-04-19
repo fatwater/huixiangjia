@@ -3,7 +3,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm'
+import { Merchant } from './merchant.entity'
 
 @Entity('merchant_favorites')
 export class MerchantFavorite {
@@ -18,4 +21,8 @@ export class MerchantFavorite {
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date
+
+  @ManyToOne('Merchant', 'favorites')
+  @JoinColumn({ name: 'merchant_id' })
+  merchant: Merchant
 }
