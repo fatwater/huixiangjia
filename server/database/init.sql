@@ -233,3 +233,22 @@ INSERT INTO `tenants` (`name`, `short_code`, `status`, `expire_date`) VALUES
 -- 插入管理员用户 (密码: admin123, MD5 hash)
 INSERT INTO `users` (`tenant_id`, `wx_userid`, `name`, `phone`, `role`, `password`) VALUES
   (1, 'admin001', '系统管理员', '13800138000', 'admin', '0192023a7bbd73250516f069df18b500');
+
+-- 插入会议室
+INSERT INTO `meeting_rooms` (`tenant_id`, `name`, `location`, `capacity`, `facilities`, `status`) VALUES
+  (1, '一号会议室', 'A栋 3层 301', 10, '["投影仪","白板","电话会议"]', 1),
+  (1, '二号会议室', 'A栋 3层 302', 6, '["电视","白板"]', 1),
+  (1, '三号会议室', 'A栋 4层 401', 20, '["投影仪","白板","音响系统","视频会议"]', 1),
+  (1, '董事会议室', 'A栋 5层 501', 30, '["投影仪","音响系统","视频会议","茶歇区"]', 1);
+
+-- 插入商家
+INSERT INTO `merchants` (`tenant_id`, `name`, `category`, `cover_image`, `description`, `address`, `phone`, `business_hours`, `discount`) VALUES
+  (1, '星巴克咖啡', '咖啡', 'https://img.yzcdn.cn/vant/cat.jpeg', '精品咖啡连锁店，提供各类咖啡饮品和甜点', 'A栋 1层', '021-12345678', '07:00-22:00', '员工价85折'),
+  (1, '康体健身', '健身', 'https://img.yzcdn.cn/vant/cat.jpeg', '专业健身房，提供器械健身和私教课程', 'B栋 2层', '021-23456789', '06:00-23:00', '新会员免费体验'),
+  (1, '员工餐厅', '餐饮', 'https://img.yzcdn.cn/vant/cat.jpeg', '提供早中晚三餐，川湘粤菜系', 'A栋 2层', '021-34567890', '早餐7:00-9:00 午餐11:30-13:30 晚餐17:30-20:00', '工作日午餐套餐28元');
+
+-- 插入团购商品
+INSERT INTO `products` (`tenant_id`, `title`, `cover_image`, `description`, `original_price`, `groupbuy_price`, `stock`, `sold_count`, `start_time`, `end_time`, `status`) VALUES
+  (1, '星巴克礼品卡 100元', 'https://img.yzcdn.cn/vant/cat.jpeg', '面值100元星巴克礼品卡，全部门店通用', 100.00, 85.00, 100, 12, NOW(), DATE_ADD(NOW(), INTERVAL 30 DAY), 1),
+  (1, '康体健身月卡', 'https://img.yzcdn.cn/vant/cat.jpeg', '原价299元/月，团购价199元/月，含器械使用和团课', 299.00, 199.00, 50, 8, NOW(), DATE_ADD(NOW(), INTERVAL 30 DAY), 1),
+  (1, '员工餐厅午餐券 10张装', 'https://img.yzcdn.cn/vant/cat.jpeg', '员工餐厅午餐券10张，原价280元，团购价220元', 280.00, 220.00, 200, 45, NOW(), DATE_ADD(NOW(), INTERVAL 30 DAY), 1);
